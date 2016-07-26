@@ -11,9 +11,15 @@ describe('compare number', () => {
     expect(string).toEqual('4A0B');
   });
 
-  it('should return string 0A4B when userNumber is wrong completely', () => {
+  it('should return string 0A0B when userNumber is wrong completely', () => {
     const string = new CompareNumber('1234', '5678').compareNumber();
 
     expect(string).toEqual('0A0B');
+  });
+
+  it("should return string 0A4B when userNumbers is correct but positions is wrong", () => {
+    const string = new CompareNumber('1234', '4321').compareNumber();
+
+    expect(string).toEqual('0A4B');
   });
 });
