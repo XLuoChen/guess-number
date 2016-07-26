@@ -19,8 +19,15 @@ class CompareNumber {
       return userNumbers.forEach(userNumber => !(answers.some(answer => answer === userNumber)));
     };
 
-    const getCountWhenHaveWroPos = () => {
-      return userNumbers.map(userNumber => answers.some(answer => answer === userNumber) ? 1 : 0)
+    const getCountWrongPos = () => {
+      return userNumbers.map((userNumber, index) =>
+          answers[index] != userNumber && answers.some(answer => answer === userNumber)
+            ? 1 : 0)
+        .reduce((prev, curr) => prev + curr, 0);
+    };
+
+    const getCountCorrectNumber = () => {
+      return userNumbers.map((userNumber, index) => answers[index] === userNumber ? 1 : 0)
         .reduce((prev, curr) => prev + curr, 0);
     };
 
@@ -33,7 +40,8 @@ class CompareNumber {
       b = 0;
     }
     else {
-      b = getCountWhenHaveWroPos();
+      a = getCountCorrectNumber();
+      b = getCountWrongPos();
     }
 
     return `${a}A${b}B`;
