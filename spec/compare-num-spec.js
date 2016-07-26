@@ -22,4 +22,10 @@ describe('compare number', () => {
 
     expect(string).toEqual('0A4B');
   });
+
+  it('should return string 2A2B when both have correct numbers and correct', () => {
+    const string = new CompareNumber('1234', '1243').compareNumber();
+
+    expect(string).toEqual('2A2B');
+  });
 });
