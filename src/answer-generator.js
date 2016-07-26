@@ -1,31 +1,16 @@
 'use strict';
 
 class AnswerGenerator {
-  constructor(answer, length, isHasSame) {
-    this.answer = answer;
-    this.length = length;
-    this.isHasSame = isHasSame;
-  }
 
   static generateAnswer() {
-    let times = 4;
-    const numbers = [];
-    let isHasSameNum;
+    const digits = [0,1,2,3,4,5,6,7,8,9];
 
-    const isHasSame = (digit) => {
-      return numbers.some(number => number === digit);
-    };
-
-    while (times) {
-      const digit = Math.floor(Math.random() * 10 + 1) % 10;
-      isHasSameNum = isHasSame(digit);
-      if (!isHasSameNum) {
-        numbers.push(digit);
-        times--;
-      }
+    const result = [];
+    for(let i = 0;i < 4;i++){
+      const randomNumber = parseInt(Math.random() * digits.length);
+      result.push(digits.splice(randomNumber,1)[0]);
     }
-
-    return new AnswerGenerator(numbers.join(''), numbers.length, isHasSameNum);
+    return result;
   }
 }
 
