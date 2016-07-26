@@ -10,7 +10,7 @@ class AnswerGenerator {
       const randomNumber = parseInt(Math.random() * digits.length);
       result.push(digits.splice(randomNumber,1)[0]);
     }
-    return result;
+    return result.join('');
   }
 }
 

@@ -11,6 +11,7 @@ class Game {
       return array.lastIndexOf(item) === index;
     };
 
+    const answer = AnswerGenerator.generateAnswer();
     console.log('Welcome!');
     for (let i = 0; i < 6; i++) {
       console.log('Please input your number(6):');
@@ -19,7 +20,6 @@ class Game {
         console.log('Cannot input duplicate numbers!');
       }
       else {
-        const answer = AnswerGenerator.generateAnswer();
         const text = new CompareNumber().compareNumber(answer, userNumber);
         if (text === '4A0B') {
           console.log('Congratulations!');
