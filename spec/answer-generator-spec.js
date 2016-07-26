@@ -11,7 +11,7 @@ describe('generate answer', () => {
 
     const answer = AnswerGenerator.generateAnswer();
     expect(answer.length).toEqual(4);
-    expect(answer.every(isUnique)).toBeTruthy();
+    expect(answer.split('').every(isUnique)).toBeTruthy();
     expect(AnswerGenerator.generateAnswer()).not.toEqual(AnswerGenerator.generateAnswer());
   });
 });
