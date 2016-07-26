@@ -1,26 +1,25 @@
 'use strict';
 
 class CompareNumber {
-  constructor(answer, userNumber) {
-    this.answer = answer;
-    this.userNumber = userNumber;
-  }
 
-  compareNumber() {
+  compareNumber(answer, userNumber) {
 
-    const answers = this.answer.split('');
-    const userNumbers = this.userNumber.split('');
+    const answers = answer.split('');
+    const userNumbers = userNumber.split('');
 
     const getWrongPosCount = () => {
       return userNumbers.map((userNumber, index) =>
-          answers[index] != userNumber && answers.some(answer => answer === userNumber)
+          answers[index] != userNumber
+          && answers.some(answer => answer === userNumber)
             ? 1 : 0)
-        .reduce((prev, curr) => prev + curr, 0);
+        .reduce((prev, curr) => prev + curr);
     };
 
     const getCorrectNumberCount = () => {
-      return userNumbers.map((userNumber, index) => answers[index] === userNumber ? 1 : 0)
-        .reduce((prev, curr) => prev + curr, 0);
+      return userNumbers.map((userNumber, index) =>
+          answers[index] === userNumber
+            ? 1 : 0)
+        .reduce((prev, curr) => prev + curr);
     };
 
     const a = getCorrectNumberCount();
