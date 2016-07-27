@@ -2,7 +2,7 @@
 
 class CompareNumber {
 
-  compareNumber(answer, userNumber) {
+  static compareNumber(answer, userNumber) {
 
     const answers = answer.split('');
     const userNumbers = userNumber.split('');

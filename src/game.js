@@ -8,7 +8,7 @@ class Game {
 
   static game() {
     const isDuplicate = (item, index, array) => {
-      return array.lastIndexOf(item) === index;
+      return array.lastIndexOf(item) != index;
     };
 
     const answer = AnswerGenerator.generateAnswer();
@@ -16,11 +16,11 @@ class Game {
     for (let i = 0; i < 6; i++) {
       console.log('Please input your number(6):');
       const userNumber = scanf('%s');
-      if (!userNumber.split('').every(isDuplicate)) {
+      if (userNumber.split('').every(isDuplicate)) {
         console.log('Cannot input duplicate numbers!');
       }
       else {
-        const text = new CompareNumber().compareNumber(answer, userNumber);
+        const text = CompareNumber.compareNumber(answer, userNumber);
         if (text === '4A0B') {
           console.log('Congratulations!');
           return;

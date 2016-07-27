@@ -18,7 +18,7 @@ describe('Compare Number', () => {
       answer: '1243',
       result: '2A2B'
     }].forEach(example => {
-      const result = new CompareNumber().compareNumber(example.answer,example.input);
+      const result = CompareNumber.compareNumber(example.answer,example.input);
       expect(result).toEqual(example.result);
     })
   })

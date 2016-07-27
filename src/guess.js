@@ -6,7 +6,7 @@ class Guess{
 
   static guess(input){
     const answer = AnswerGenerator.generateAnswer();
-    const string = new CompareNumber().compareNumber(answer,input);
+    const string = CompareNumber.compareNumber(answer,input);
 
     return string;
   }
